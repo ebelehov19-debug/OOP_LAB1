@@ -42,8 +42,8 @@ int main()
                     break;
                 }
                 matrix_delete(matrix, rows);
-                size_t rows(r);
-                size_t cols(c);
+                rows = static_cast<std::size_t>(r);   
+                cols = static_cast<std::size_t>(c);
                 matrix = matrix_create(rows, cols);
                 std::cout << "Matrix " << rows << "x" << cols << " created.\n";
                 break;
