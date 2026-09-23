@@ -8,12 +8,10 @@ if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Debug)
 endif()
 
-# Опции для включения санитайзеров
 option(ENABLE_ASAN "Enable AddressSanitizer" OFF)
 option(ENABLE_UBSAN "Enable UndefinedBehaviorSanitizer" OFF)
 option(ENABLE_TSAN "Enable ThreadSanitizer" OFF)
 
-# Функция для применения санитайзеров к любому таргету
 function(apply_sanitizers target)
     target_compile_options(${target} PRIVATE -g)
 
@@ -36,7 +34,6 @@ function(apply_sanitizers target)
     endif()
 endfunction()
 
-# ---------- Основной исполняемый файл ----------
 add_executable(lab01
     src/main.cpp
     src/matrix_ops.cpp
